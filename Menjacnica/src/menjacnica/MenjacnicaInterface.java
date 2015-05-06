@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public interface MenjacnicaInterface {
 	
-	public void dodajValutu(Valuta valuta, LinkedList<Valuta> kursnaLista);
+	public void dodajValutu(Valuta valuta);
 	public void obrisiValutu(Valuta valuta);
 	public double izvrsiTransakciju(Valuta valuta, boolean prodaja, double iznos);
 	public LinkedList<Valuta> vratiKursnuListu();

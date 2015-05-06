@@ -13,7 +13,7 @@ import menjacnica.sistemskeOperacije.SOUcitajIzFajla;
 public class Menjacnica implements MenjacnicaInterface{
 	
 	
-	public void dodajValutu(Valuta valuta, LinkedList<Valuta> kursnaLista) {
+	public void dodajValutu(Valuta valuta) {
 		SODodajValutu.dodajValutu(valuta, kursnaLista);		
 	}
 
