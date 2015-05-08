@@ -65,10 +65,7 @@ public class GUIKontroler {
 					"Greska", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	/*
-	 * proveriti da li treba da prikaze sve valute
-	 * glavniProzor.prikaziSveValute(file);
-	 */
+	
 	public static void ucitajIzFajla() {
 		try {
 			JFileChooser fc = new JFileChooser();
@@ -77,7 +74,7 @@ public class GUIKontroler {
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fc.getSelectedFile();
 				menjacnicaSistem.ucitajIzFajla(file.getAbsolutePath());
-				
+				glavniProzor.prikaziSveValute(menjacnicaSistem.vratiKursnuListu());
 			}	
 		} catch (Exception e1) {
 			JOptionPane.showMessageDialog(glavniProzor.getContentPane(), e1.getMessage(),
