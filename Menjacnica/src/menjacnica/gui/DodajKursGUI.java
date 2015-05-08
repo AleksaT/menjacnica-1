@@ -40,7 +40,7 @@ public class DodajKursGUI extends JFrame {
 	private JButton btnDodaj;
 	private JButton btnOdus;
 
-	private MenjacnicaGUI glavniProzor;
+	
 	private JSpinner spinnerSifra;
 
 	/**
@@ -157,9 +157,15 @@ public class DodajKursGUI extends JFrame {
 			btnDodaj = new JButton("Dodaj");
 			btnDodaj.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					GUIKontroler.unesiKurs(textFieldNaziv.getText(),textFieldSkraceniNaziv.getText(),(Integer)(spinnerSifra.getValue()),
-							Double.parseDouble(textFieldProdajniKurs.getText()),Double.parseDouble(textFieldKupovniKurs.getText()),Double.parseDouble(textFieldSrednjiKurs.getText()));
-			        dispose();
+					try {
+						GUIKontroler.unesiKurs(textFieldNaziv.getText(),textFieldSkraceniNaziv.getText(),(Integer)(spinnerSifra.getValue()),
+								Double.parseDouble(textFieldProdajniKurs.getText()),Double.parseDouble(textFieldKupovniKurs.getText()),Double.parseDouble(textFieldSrednjiKurs.getText()));
+						dispose();
+					} catch (NumberFormatException e1) {
+						JOptionPane.showMessageDialog(contentPane, e1.getMessage(),
+								"Greska", JOptionPane.ERROR_MESSAGE);
+						
+					}
 				}
 			});
 		}

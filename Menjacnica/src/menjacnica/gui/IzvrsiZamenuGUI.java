@@ -27,6 +27,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 
 import menjacnica.Valuta;
+
 import java.awt.Toolkit;
 
 public class IzvrsiZamenuGUI extends JFrame {
@@ -164,14 +165,19 @@ public class IzvrsiZamenuGUI extends JFrame {
 			btnIzvrsiZamenu = new JButton("Izracunaj iznos");
 			btnIzvrsiZamenu.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					double konacanIznos=0;
-					if(rdbtnKupovina.isSelected()){
-						konacanIznos = GUIKontroler.izvrsiZamenu(valuta,false,Double.parseDouble(textFieldIznos.getText()));
+					try {
+						double konacanIznos=0;
+						if(rdbtnKupovina.isSelected()){
+							konacanIznos = GUIKontroler.izvrsiZamenu(valuta,false,Double.parseDouble(textFieldIznos.getText()));
+						}
+						if(rdbtnProdaja.isSelected()){
+							konacanIznos = GUIKontroler.izvrsiZamenu(valuta, true,Double.parseDouble(textFieldIznos.getText()) );
+						}
+						textFieldKonacniIznos.setText(Double.toString(konacanIznos));
+					} catch (NumberFormatException e1) {
+						JOptionPane.showMessageDialog(contentPane, e1.getMessage(),
+								"Greska", JOptionPane.ERROR_MESSAGE);
 					}
-					if(rdbtnProdaja.isSelected()){
-						konacanIznos = GUIKontroler.izvrsiZamenu(valuta, true,Double.parseDouble(textFieldIznos.getText()) );
-					}
-					textFieldKonacniIznos.setText(Double.toString(konacanIznos));
 					
 				}
 			});
