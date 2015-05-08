@@ -134,4 +134,17 @@ public class GUIKontroler {
 					"Greska", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
+	public static void obrisiValutu(Valuta valuta) {
+		try{
+			menjacnicaSistem.obrisiValutu(valuta);
+			
+			glavniProzor.prikaziSveValute(menjacnicaSistem.vratiKursnuListu());
+			
+		} catch (Exception e1) {
+			JOptionPane.showMessageDialog(glavniProzor.getContentPane(), e1.getMessage(),
+					"Greska", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
 }
