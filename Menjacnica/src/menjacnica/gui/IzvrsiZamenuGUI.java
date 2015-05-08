@@ -172,7 +172,7 @@ public class IzvrsiZamenuGUI extends JFrame {
 						konacanIznos = GUIKontroler.izvrsiZamenu(valuta, true,Double.parseDouble(textFieldIznos.getText()) );
 					}
 					textFieldKonacniIznos.setText(Double.toString(konacanIznos));
-					dispose();
+					
 				}
 			});
 			btnIzvrsiZamenu.setBounds(24, 234, 160, 25);
