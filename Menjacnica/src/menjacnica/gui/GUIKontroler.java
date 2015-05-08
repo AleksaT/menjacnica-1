@@ -107,4 +107,31 @@ public class GUIKontroler {
 			prozor.setVisible(true);
 		}
 	}
+	
+	public static void unesiKurs(String naziv, String skraceniNaziv, int sifra, double prodajni,double kupovni,
+			double srednji) {
+		try {
+			Valuta valuta = new Valuta();
+
+			// Punjenje podataka o valuti
+			valuta.setNaziv(naziv);
+			valuta.setSkraceniNaziv(skraceniNaziv);
+			valuta.setSifra(sifra);
+			valuta.setProdajni(prodajni);
+			valuta.setKupovni(kupovni);
+			valuta.setSrednji(srednji);
+			
+			// Dodavanje valute u kursnu listu
+			menjacnicaSistem.dodajValutu(valuta);
+
+			// Osvezavanje glavnog prozora
+			glavniProzor.prikaziSveValute(menjacnicaSistem.vratiKursnuListu());
+			
+			
+			
+		} catch (Exception e1) {
+			JOptionPane.showMessageDialog(glavniProzor.getContentPane(), e1.getMessage(),
+					"Greska", JOptionPane.ERROR_MESSAGE);
+		}
+	}
 }
