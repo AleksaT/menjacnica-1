@@ -147,4 +147,17 @@ public class GUIKontroler {
 		}
 	}
 	
+	public static double izvrsiZamenu(Valuta valuta, boolean prodaja, double iznos){
+		try{
+			double konacniIznos = 
+					menjacnicaSistem.izvrsiTransakciju(valuta,prodaja ,iznos );
+			return konacniIznos;
+		
+		} catch (Exception e1) {
+		JOptionPane.showMessageDialog(glavniProzor.getContentPane(), e1.getMessage(),
+				"Greska", JOptionPane.ERROR_MESSAGE);
+		return 0;
+	}
+	}
+	
 }
